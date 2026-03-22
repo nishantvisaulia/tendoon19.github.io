@@ -19,48 +19,19 @@ body{
 header{
   position:sticky;
   top:0;
-  background:rgba(0,0,0,0.85);
-  backdrop-filter:blur(10px);
+  background:#000;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 40px;
   z-index:1000;
 }
-
 nav a{
   color:white;
   margin:0 12px;
   text-decoration:none;
-  transition:0.3s;
 }
 nav a:hover{color:#00C2FF;}
-
-nav a.active{
-  color:#00C2FF;
-}
-
-.menu-btn{
-  display:none;
-  font-size:26px;
-  cursor:pointer;
-}
-
-  /* MOBILE */
-@media(max-width:768px){
-  nav{
-    display:none;
-    position:absolute;
-    top:70px;
-    right:20px;
-    background:#111;
-    flex-direction:column;
-    padding:15px;
-    border-radius:10px;
-  }
-  nav.show{display:flex;}
-  .menu-btn{display:block;}
-}
 
 /* HERO */
 .hero{
@@ -223,93 +194,8 @@ footer{
   <p>&copy; 2026 Tendoon</p>
 </footer>
 
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px;
-  border-radius:50%;
-  text-decoration:none;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <img src="logo2.png" style="height:60px;">
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  <nav id="nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <img src="logo2.png" alt="Tendoon Logo">
-  <h1>We Build AI-Powered Growth Systems</h1>
-  <p>Helping brands scale with AI, marketing & design</p>
-  <a href="landing.html" class="btn">Get Free Strategy Call</a>
-</section>
-
-<section>
-  <h2 class="fade">Our Services</h2>
-
-  <div class="grid">
-    <div class="card fade">AI Automation</div>
-    <div class="card fade">Digital Marketing</div>
-    <div class="card fade">Web Development</div>
-    <div class="card fade">Branding</div>
-  </div>
-
-  <a href="services.html" class="btn fade">Explore Services</a>
-</section>
-
-<section>
-  <h2 class="fade">Results We Deliver</h2>
-
-  <div class="grid">
-    <div class="card fade">+300% Growth</div>
-    <div class="card fade">80% Automation</div>
-    <div class="card fade">3X Leads</div>
-  </div>
-</section>
-
-<section>
-  <h2 class="fade">Ready to Grow Your Business?</h2>
-  <a href="contact.html" class="btn fade">Scale My Business</a>
-</section>
-
-<footer>
-  <p>&copy; 2026 Tendoon</p>
-</footer>
-
+<!-- WHATSAPP -->
 <a href="https://wa.me/919004230084?text=Hi%20I%20want%20to%20grow%20my%20business%20with%20Tendoon" class="whatsapp">💬</a>
-
-<script>
-function toggleMenu(){
-  document.getElementById("nav").classList.toggle("show");
-}
-
-const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-  const trigger = window.innerHeight * 0.85;
-
-  faders.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < trigger){
-      el.classList.add('show');
-    }
-  });
-});
-</script>
 
 </body>
 </html>
