@@ -19,19 +19,32 @@ body{
 header{
   position:sticky;
   top:0;
-  background:#000;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(10px);
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 40px;
   z-index:1000;
 }
+
 nav a{
   color:white;
   margin:0 12px;
   text-decoration:none;
+  transition:0.3s;
 }
 nav a:hover{color:#00C2FF;}
+
+nav a.active{
+  color:#00C2FF;
+}
+
+.menu-btn{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
 
 /* HERO */
 .hero{
