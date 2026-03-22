@@ -34,6 +34,7 @@ nav a{
   color:white;
   margin:0 12px;
   text-decoration:none;
+  transition:0.3s;
 }
 nav a:hover{color:#00C2FF;}
 
@@ -43,7 +44,7 @@ nav a:hover{color:#00C2FF;}
   cursor:pointer;
 }
 
-/* MOBILE MENU */
+/* MOBILE */
 @media(max-width:768px){
   nav{
     display:none;
@@ -81,7 +82,10 @@ nav a:hover{color:#00C2FF;}
   display:inline-block;
   transition:0.3s;
 }
-.btn:hover{transform:scale(1.05);}
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px #00C2FF;
+}
 
 /* SECTION */
 section{
@@ -104,30 +108,10 @@ h2{font-size:36px;}
   padding:25px;
   border-radius:12px;
   transition:0.3s;
-  opacity:0;
-  transform:translateY(30px);
-}
-.card.show{
-  opacity:1;
-  transform:translateY(0);
 }
 .card:hover{
   transform:translateY(-8px);
   box-shadow:0 0 20px #7B2FFF;
-}
-
-/* WHATSAPP BUTTON */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px 18px;
-  border-radius:50%;
-  font-size:22px;
-  text-decoration:none;
-  box-shadow:0 0 10px #25D366;
 }
 
 /* FOOTER */
@@ -137,6 +121,19 @@ footer{
   padding:30px;
   color:#aaa;
 }
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+  box-shadow:0 0 10px #25D366;
+}
 </style>
 </head>
 
@@ -145,11 +142,11 @@ footer{
 <!-- HEADER -->
 <header>
   <img src="logo2.png" style="height:60px;">
-  
+
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
   <nav id="nav">
-    <a href="#">Home</a>
+    <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="about.html">About</a>
@@ -161,7 +158,8 @@ footer{
 <section class="hero">
   <h1>We Build AI-Powered Growth Systems</h1>
   <p>Helping brands scale with AI, marketing & design</p>
-  <a href="contact.html" class="btn">Get Started</a>
+
+  <a href="landing.html" class="btn">Get Free Strategy Call</a>
 </section>
 
 <!-- SERVICES -->
@@ -173,11 +171,13 @@ footer{
     <div class="card">Web Development</div>
     <div class="card">Branding</div>
   </div>
+
+  <a href="services.html" class="btn">Explore Services</a>
 </section>
 
 <!-- CASE STUDIES -->
 <section>
-  <h2>Case Studies</h2>
+  <h2>Results We Deliver</h2>
   <div class="grid">
     <div class="card">+300% Growth</div>
     <div class="card">80% Automation</div>
@@ -185,21 +185,10 @@ footer{
   </div>
 </section>
 
-<!-- PROCESS -->
-<section>
-  <h2>Our Process</h2>
-  <div class="grid">
-    <div class="card">Research</div>
-    <div class="card">Strategy</div>
-    <div class="card">Execution</div>
-    <div class="card">Growth</div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section>
-  <h2>Let’s Build Your Growth System</h2>
-  <a href="contact.html" class="btn">Book a Call</a>
+  <h2>Ready to Grow Your Business?</h2>
+  <a href="contact.html" class="btn">Scale My Business</a>
 </section>
 
 <!-- FOOTER -->
@@ -208,26 +197,12 @@ footer{
 </footer>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/919004230084" class="whatsapp">💬</a>
+<a href="https://wa.me/919004230084?text=Hi%20I%20want%20to%20grow%20my%20business%20with%20Tendoon" class="whatsapp">💬</a>
 
 <script>
 function toggleMenu(){
   document.getElementById("nav").classList.toggle("show");
 }
-
-// SCROLL ANIMATION
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-  const trigger = window.innerHeight * 0.85;
-
-  cards.forEach(card => {
-    const top = card.getBoundingClientRect().top;
-    if(top < trigger){
-      card.classList.add('show');
-    }
-  });
-});
 </script>
 
 </body>
