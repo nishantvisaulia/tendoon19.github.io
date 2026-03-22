@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tendoon - Grow Your Business</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:white;
+  text-align:center;
+}
+
+/* HERO */
+.hero{
+  padding:100px 20px;
+}
+.hero h1{
+  font-size:45px;
+  background:linear-gradient(45deg,#7B2FFF,#00C2FF);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.hero p{
+  color:#aaa;
+  max-width:600px;
+  margin:15px auto;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:25px;
+  padding:14px 30px;
+  background:linear-gradient(45deg,#7B2FFF,#00C2FF);
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  display:inline-block;
+  transition:0.3s;
+}
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px #00C2FF;
+}
+
+/* SECTION */
+section{
+  padding:70px 20px;
+}
+
+/* GRID */
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  width:260px;
+  background:#111;
+  padding:25px;
+  border-radius:10px;
+}
+
+/* FORM */
+form{
+  max-width:400px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+input, textarea{
+  padding:12px;
+  border:none;
+  border-radius:6px;
+  background:#111;
+  color:white;
+}
+
+/* TRUST */
+.badge{
+  margin-top:15px;
+  color:#00C2FF;
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  padding:20px;
+  color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Grow Your Business with AI & Marketing</h1>
+  <p>We help brands increase leads, automate work & scale faster using proven strategies.</p>
+  <a href="#form" class="btn">Get Free Strategy Call</a>
+</section>
+
+<!-- BENEFITS -->
+<section>
+  <h2>What You Get</h2>
+  <div class="grid">
+    <div class="card">✔ More Leads & Sales</div>
+    <div class="card">✔ AI Automation Systems</div>
+    <div class="card">✔ High-Converting Website</div>
+    <div class="card">✔ Growth Strategy</div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section>
+  <h2>Results We Deliver</h2>
+  <div class="grid">
+    <div class="card">+300% Growth</div>
+    <div class="card">80% Automation</div>
+    <div class="card">3X Leads</div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="form">
+  <h2>Book Your Free Strategy Call</h2>
+
+  <form action="https://formsubmit.co/your@email.com" method="POST">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Tell us about your business" required></textarea>
+
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit" class="btn">Get Free Strategy Call</button>
+
+  </form>
+
+  <p class="badge">⚡ Limited slots available</p>
+
+  <p style="margin-top:20px;">
+    Or WhatsApp:
+    <a href="https://wa.me/919004230084?text=Hi%20I%20want%20to%20grow%20my%20business%20with%20Tendoon" style="color:#00C2FF; text-decoration:none;">Click here</a>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Tendoon</p>
+</footer>
+
+</body>
+</html>
