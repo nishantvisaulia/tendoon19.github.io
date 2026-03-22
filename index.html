@@ -16,11 +16,12 @@ body{
   scroll-behavior:smooth;
 }
 
-/* HEADER (UNCHANGED) */
+/* HEADER (NO CHANGE) */
 header{
   position:sticky;
   top:0;
-  background:#000;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(10px);
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -32,8 +33,13 @@ nav a{
   color:white;
   margin:0 12px;
   text-decoration:none;
+  transition:0.3s;
 }
 nav a:hover{color:#00C2FF;}
+
+nav a.active{
+  color:#00C2FF;
+}
 
 .menu-btn{
   display:none;
@@ -77,20 +83,22 @@ nav a:hover{color:#00C2FF;}
 
 .hero p{color:#aaa;}
 
-/* BUTTON (MATCHED WITH SERVICES PAGE) */
+/* 🔥 BUTTON (UPDATED) */
 .btn{
   margin-top:25px;
   padding:14px 30px;
   background:linear-gradient(45deg,#7B2FFF,#00C2FF);
-  border-radius:8px;
+  border-radius:10px;
   color:white;
   text-decoration:none;
   display:inline-block;
-  transition:0.3s;
+  transition:all 0.3s ease;
+  box-shadow:0 5px 15px rgba(123,47,255,0.4);
 }
+
 .btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px #00C2FF;
+  transform:translateY(-5px) scale(1.05); /* 👈 lift effect */
+  box-shadow:0 10px 25px rgba(0,194,255,0.6);
 }
 
 /* SECTION */
@@ -98,6 +106,7 @@ section{
   padding:80px 20px;
   text-align:center;
 }
+
 h2{font-size:36px;}
 
 /* GRID */
@@ -109,17 +118,31 @@ h2{font-size:36px;}
   margin-top:40px;
 }
 
-/* CARD (MATCHED STYLE) */
+/* CARD (SLIGHT UPGRADE) */
 .card{
   width:260px;
-  background:#111;
   padding:25px;
-  border-radius:12px;
-  transition:0.3s;
+  border-radius:15px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.4s;
 }
+
 .card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 20px #7B2FFF;
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 25px rgba(123,47,255,0.6);
+}
+
+/* FADE */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* FOOTER */
@@ -140,20 +163,22 @@ footer{
   padding:15px;
   border-radius:50%;
   text-decoration:none;
+  box-shadow:0 0 15px #25D366;
+  transition:0.3s;
+}
+.whatsapp:hover{
+  transform:scale(1.1);
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER (UNCHANGED) -->
 <header>
   <img src="logo2.png" style="height:60px;">
-
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
-
   <nav id="nav">
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="about.html">About</a>
@@ -161,59 +186,64 @@ footer{
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <img src="logo2.png" alt="Tendoon Logo">
-
   <h1>We Build AI-Powered Growth Systems</h1>
   <p>Helping brands scale with AI, marketing & design</p>
-
   <a href="landing.html" class="btn">Get Free Strategy Call</a>
 </section>
 
-<!-- SERVICES -->
 <section>
-  <h2>Our Services</h2>
+  <h2 class="fade">Our Services</h2>
 
   <div class="grid">
-    <div class="card">AI Automation</div>
-    <div class="card">Digital Marketing</div>
-    <div class="card">Web Development</div>
-    <div class="card">Branding</div>
+    <div class="card fade">AI Automation</div>
+    <div class="card fade">Digital Marketing</div>
+    <div class="card fade">Web Development</div>
+    <div class="card fade">Branding</div>
   </div>
 
-  <a href="services.html" class="btn">Explore Services</a>
+  <a href="services.html" class="btn fade">Explore Services</a>
 </section>
 
-<!-- RESULTS -->
 <section>
-  <h2>Results We Deliver</h2>
+  <h2 class="fade">Results We Deliver</h2>
 
   <div class="grid">
-    <div class="card">+300% Growth</div>
-    <div class="card">80% Automation</div>
-    <div class="card">3X Leads</div>
+    <div class="card fade">+300% Growth</div>
+    <div class="card fade">80% Automation</div>
+    <div class="card fade">3X Leads</div>
   </div>
 </section>
 
-<!-- CTA -->
 <section>
-  <h2>Ready to Grow Your Business?</h2>
-  <a href="contact.html" class="btn">Scale My Business</a>
+  <h2 class="fade">Ready to Grow Your Business?</h2>
+  <a href="contact.html" class="btn fade">Scale My Business</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>&copy; 2026 Tendoon</p>
 </footer>
 
-<!-- WHATSAPP -->
 <a href="https://wa.me/919004230084?text=Hi%20I%20want%20to%20grow%20my%20business%20with%20Tendoon" class="whatsapp">💬</a>
 
 <script>
 function toggleMenu(){
   document.getElementById("nav").classList.toggle("show");
 }
+
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < trigger){
+      el.classList.add('show');
+    }
+  });
+});
 </script>
 
 </body>
