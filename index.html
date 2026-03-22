@@ -13,14 +13,22 @@ body{
   font-family:'Poppins',sans-serif;
   background:#000;
   color:white;
+  scroll-behavior:smooth;
 }
 
 /* HEADER */
 header{
+  position:sticky;
+  top:0;
+  background:#000;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 40px;
+  z-index:1000;
+}
+nav{
+  display:flex;
 }
 nav a{
   color:white;
@@ -29,18 +37,40 @@ nav a{
 }
 nav a:hover{color:#00C2FF;}
 
+.menu-btn{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+/* MOBILE MENU */
+@media(max-width:768px){
+  nav{
+    display:none;
+    position:absolute;
+    top:70px;
+    right:20px;
+    background:#111;
+    flex-direction:column;
+    padding:15px;
+    border-radius:10px;
+  }
+  nav.show{display:flex;}
+  .menu-btn{display:block;}
+}
+
 /* HERO */
 .hero{
   text-align:center;
-  padding:100px 20px;
+  padding:120px 20px;
 }
 .hero h1{
-  font-size:60px;
+  font-size:55px;
   background:linear-gradient(45deg,#7B2FFF,#00C2FF);
   -webkit-background-clip:text;
   color:transparent;
 }
-.hero p{color:#aaa; margin-top:15px;}
+.hero p{color:#aaa;}
 .btn{
   margin-top:25px;
   padding:14px 30px;
@@ -49,6 +79,7 @@ nav a:hover{color:#00C2FF;}
   color:white;
   text-decoration:none;
   display:inline-block;
+  transition:0.3s;
 }
 .btn:hover{transform:scale(1.05);}
 
@@ -73,15 +104,30 @@ h2{font-size:36px;}
   padding:25px;
   border-radius:12px;
   transition:0.3s;
+  opacity:0;
+  transform:translateY(30px);
+}
+.card.show{
+  opacity:1;
+  transform:translateY(0);
 }
 .card:hover{
   transform:translateY(-8px);
   box-shadow:0 0 20px #7B2FFF;
 }
 
-/* PROCESS */
-.step{
-  max-width:200px;
+/* WHATSAPP BUTTON */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px 18px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 0 10px #25D366;
 }
 
 /* FOOTER */
@@ -99,12 +145,15 @@ footer{
 <!-- HEADER -->
 <header>
   <img src="logo2.png" style="height:60px;">
-  <nav>
+  
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <nav id="nav">
     <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">Portfolio</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -112,17 +161,17 @@ footer{
 <section class="hero">
   <h1>We Build AI-Powered Growth Systems</h1>
   <p>Helping brands scale with AI, marketing & design</p>
-  <a href="#" class="btn">Get Started</a>
+  <a href="contact.html" class="btn">Get Started</a>
 </section>
 
 <!-- SERVICES -->
 <section>
   <h2>Our Services</h2>
   <div class="grid">
-    <div class="card"><h3>AI Automation</h3><p>Automate your business workflows</p></div>
-    <div class="card"><h3>Digital Marketing</h3><p>Scale your brand visibility</p></div>
-    <div class="card"><h3>Web Development</h3><p>Modern high-converting websites</p></div>
-    <div class="card"><h3>Branding</h3><p>Premium identity & positioning</p></div>
+    <div class="card">AI Automation</div>
+    <div class="card">Digital Marketing</div>
+    <div class="card">Web Development</div>
+    <div class="card">Branding</div>
   </div>
 </section>
 
@@ -130,9 +179,9 @@ footer{
 <section>
   <h2>Case Studies</h2>
   <div class="grid">
-    <div class="card"><h3>+300% Growth</h3><p>Instagram marketing success</p></div>
-    <div class="card"><h3>80% Automation</h3><p>Reduced manual work</p></div>
-    <div class="card"><h3>3X Leads</h3><p>Sales funnel optimization</p></div>
+    <div class="card">+300% Growth</div>
+    <div class="card">80% Automation</div>
+    <div class="card">3X Leads</div>
   </div>
 </section>
 
@@ -140,23 +189,46 @@ footer{
 <section>
   <h2>Our Process</h2>
   <div class="grid">
-    <div class="card step"><h3>1. Research</h3></div>
-    <div class="card step"><h3>2. Strategy</h3></div>
-    <div class="card step"><h3>3. Execution</h3></div>
-    <div class="card step"><h3>4. Growth</h3></div>
+    <div class="card">Research</div>
+    <div class="card">Strategy</div>
+    <div class="card">Execution</div>
+    <div class="card">Growth</div>
   </div>
 </section>
 
 <!-- CTA -->
 <section>
   <h2>Let’s Build Your Growth System</h2>
-  <a href="#" class="btn">Book a Call</a>
+  <a href="contact.html" class="btn">Book a Call</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <p>&copy; 2026 Tendoon</p>
 </footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/919004230084" class="whatsapp">💬</a>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("show");
+}
+
+// SCROLL ANIMATION
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < trigger){
+      card.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
