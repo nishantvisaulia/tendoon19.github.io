@@ -27,32 +27,49 @@ header{
   padding:15px 40px;
   z-index:1000;
 }
+
+/* NAV */
 nav a{
   color:white;
   margin:0 12px;
   text-decoration:none;
+  transition:0.3s;
 }
-nav a:hover{color:#00C2FF;}
+
+nav a:hover{
+  color:#00C2FF;
+}
+
+/* ✅ ACTIVE PAGE COLOR (PURPLE) */
+nav a.active{
+  color:#7B2FFF;
+}
 
 /* HERO */
 .hero{
   text-align:center;
   padding:100px 20px;
 }
+
+/* ❌ REMOVE GRADIENT → ✅ WHITE */
 .hero h1{
   font-size:50px;
-  background:linear-gradient(45deg,#7B2FFF,#00C2FF);
-  -webkit-background-clip:text;
-  color:transparent;
+  color:white;
 }
-.hero p{color:#aaa;}
+
+.hero p{
+  color:#aaa;
+}
 
 /* SECTION */
 section{
   padding:80px 20px;
   text-align:center;
 }
-h2{font-size:36px;}
+
+h2{
+  font-size:36px;
+}
 
 /* GRID */
 .grid{
@@ -71,6 +88,7 @@ h2{font-size:36px;}
   border-radius:12px;
   transition:0.3s;
 }
+
 .card:hover{
   transform:translateY(-8px);
   box-shadow:0 0 20px #7B2FFF;
@@ -87,6 +105,7 @@ h2{font-size:36px;}
   display:inline-block;
   transition:0.3s;
 }
+
 .btn:hover{
   transform:scale(1.05);
   box-shadow:0 0 15px #00C2FF;
@@ -198,24 +217,5 @@ footer{
 <!-- WHATSAPP -->
 <a href="https://wa.me/919004230084?text=Hi%20I%20want%20to%20grow%20my%20business%20with%20Tendoon" class="whatsapp">💬</a>
 
-<script>
-function toggleMenu(){
-  document.getElementById("nav").classList.toggle("show");
-}
-
-const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-  const trigger = window.innerHeight * 0.85;
-
-  faders.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < trigger){
-      el.classList.add('show');
-    }
-  });
-});
-</script>
-  
 </body>
 </html>
