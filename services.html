@@ -198,5 +198,24 @@ footer{
 <!-- WHATSAPP -->
 <a href="https://wa.me/919004230084?text=Hi%20I%20want%20to%20grow%20my%20business%20with%20Tendoon" class="whatsapp">💬</a>
 
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("show");
+}
+
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < trigger){
+      el.classList.add('show');
+    }
+  });
+});
+</script>
+  
 </body>
 </html>
