@@ -8,60 +8,153 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#000;color:white;}
-header{position:sticky;top:0;background:#000;display:flex;justify-content:space-between;padding:15px 40px;}
-nav a{color:white;margin:0 12px;text-decoration:none;}
-nav a:hover{color:#00C2FF;}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:white;
+}
 
-section{text-align:center;padding:80px 20px;}
-h1{font-size:50px;} h2{font-size:36px;}
+/* HEADER (MATCHED) */
+header{
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  z-index:1000;
+}
 
-.btn{padding:12px 25px;background:linear-gradient(45deg,#7B2FFF,#00C2FF);border-radius:8px;color:white;text-decoration:none;}
+nav a{
+  color:white;
+  margin:0 12px;
+  text-decoration:none;
+  transition:0.3s;
+}
 
-footer{background:#111;text-align:center;padding:25px;color:#aaa;}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;color:white;text-decoration:none;}
+nav a:hover{
+  color:#00C2FF;
+}
+
+/* ✅ ACTIVE PAGE COLOR (FIROZI) */
+nav a.active{
+  color:#00C2FF;
+}
+
+/* SECTION */
+section{
+  text-align:center;
+  padding:80px 20px;
+}
+
+h1{font-size:50px;}
+h2{font-size:36px;}
+p{color:#aaa;}
+
+/* CONTENT WIDTH */
+.content{
+  max-width:700px;
+  margin:auto;
+  line-height:1.6;
+}
+
+/* BUTTON (MATCHED) */
+.btn{
+  margin-top:20px;
+  padding:14px 30px;
+  background:linear-gradient(45deg,#7B2FFF,#00C2FF);
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  display:inline-block;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px #00C2FF;
+}
+
+/* FOOTER */
+footer{
+  background:#111;
+  text-align:center;
+  padding:25px;
+  color:#aaa;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50%;
+  color:white;
+  text-decoration:none;
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-<a href="index.html"><img src="logo2.png" style="height:60px;"></a>
-<nav>
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</nav>
+  <a href="index.html">
+    <img src="logo2.png" style="height:60px;">
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
+<!-- TITLE -->
 <section>
-<h1>About Tendoon</h1>
-<p>We help businesses grow using AI & digital strategies</p>
+  <h1>About Tendoon</h1>
+  <p>We help businesses grow using AI & digital strategies</p>
 </section>
 
+<!-- ABOUT CONTENT -->
 <section>
-<p style="max-width:700px;margin:auto;">
-Tendoon is a modern digital agency focused on AI automation, marketing, and branding. 
-We help startups and businesses scale faster with smart systems, powerful design, and growth strategies.
-</p>
+  <div class="content">
+    <p>
+      Tendoon is a modern digital agency focused on AI automation, marketing, and branding. 
+      We help startups and businesses scale faster with smart systems, powerful design, and growth strategies.
+    </p>
+  </div>
 </section>
 
+<!-- WHY US -->
 <section>
-<h2>Why Choose Us?</h2>
-<p>✔ Fast Delivery<br>✔ ROI Focused<br>✔ Modern AI Solutions</p>
+  <h2>Why Choose Us?</h2>
+  <p class="content">
+    ✔ Fast Delivery<br>
+    ✔ ROI Focused<br>
+    ✔ Modern AI Solutions
+  </p>
 </section>
 
+<!-- CTA -->
 <section>
-<h2>Let’s Work Together</h2>
-<a href="landing.html" class="btn">Get Free Strategy Call</a>
+  <h2>Let’s Work Together</h2>
+  <a href="landing.html" class="btn">Get Free Strategy Call</a>
 </section>
 
+<!-- FOOTER -->
 <footer>
-<p>&copy; 2026 Tendoon</p>
+  <p>&copy; 2026 Tendoon</p>
 </footer>
 
+<!-- WHATSAPP -->
 <a href="https://wa.me/919004230084?text=Hi%20I%20want%20to%20grow%20my%20business%20with%20Tendoon" class="whatsapp">💬</a>
 
 </body>
