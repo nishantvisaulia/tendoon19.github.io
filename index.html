@@ -91,6 +91,24 @@
       background-clip:text;
     }
     .logo-dot { color:var(--p); -webkit-text-fill-color:var(--p); }
+    .logo-img {
+      height:46px;
+      width:auto;
+      display:block;
+      /* Remove the black background that comes with the logo PNG */
+      mix-blend-mode: screen;
+      filter: brightness(1.05);
+      transition: filter 0.3s, transform 0.3s;
+    }
+    .logo-img:hover {
+      filter: brightness(1.2) drop-shadow(0 0 8px rgba(155,77,255,0.5));
+      transform: scale(1.03);
+    }
+    /* Fallback wrapper so black bg is clipped */
+    .logo-wrap {
+      background: transparent;
+      display:flex; align-items:center;
+    }
     nav ul { display:flex; gap:36px; list-style:none; }
     .nav-link {
       font-size:0.875rem;
@@ -688,7 +706,13 @@
       display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
       gap:48px; margin-bottom:48px;
     }
-    .footer-brand .logo-text { font-size:1.4rem; margin-bottom:14px; display:block; }
+    .footer-brand .footer-logo {
+      height:50px; width:auto;
+      mix-blend-mode:screen;
+      filter:brightness(1.05);
+      margin-bottom:16px;
+      display:block;
+    }
     .footer-brand p { font-size:0.85rem; color:var(--muted); line-height:1.7; max-width:260px; }
     .footer-col h5 {
       font-size:0.72rem; font-weight:700;
@@ -704,17 +728,18 @@
       border-top:1px solid var(--border);
     }
     .footer-bottom p { font-size:0.8rem; color:var(--muted); }
-    .social-icons { display:flex; gap:14px; }
+    .social-icons { display:flex; gap:25px; justify-content:center; }
     .social-icons a {
-      width:36px; height:36px;
-      border-radius:8px;
-      background:var(--surface);
-      border:1px solid var(--border);
-      display:flex; align-items:center; justify-content:center;
-      font-size:0.9rem; color:var(--muted);
-      transition:all 0.3s;
+      color: var(--white);
+      font-size: 28px;
+      transition: color 0.4s var(--ease), transform 0.4s var(--ease);
+      display: inline-block;
+      line-height:1;
     }
-    .social-icons a:hover { border-color:var(--p); color:var(--p); background:rgba(155,77,255,0.08); }
+    .social-icons a:hover {
+      color: var(--p);
+      transform: translateY(-5px);
+    }
 
     /* ====== STICKY BTN ====== */
     .sticky-btn {
@@ -805,7 +830,9 @@
 <!-- ======= HEADER ======= -->
 <header class="header" id="header">
   <div class="header-inner">
-    <a href="#hero" class="logo-text">TENDOON<span class="logo-dot"></span></a>
+    <a href="#hero" class="logo-wrap">
+      <img src="logo1.png" alt="Tendoon" class="logo-img" />
+    </a>
     <nav>
       <ul>
         <li><a href="#hero" class="nav-link active">Home</a></li>
@@ -816,7 +843,7 @@
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
-    <a href="#contact" class="btn btn-sm">Book a Call</a>
+    <a href="#contact" class="btn btn-sm">Get Started</a>
     <button class="mobile-menu-btn" id="mobileBtn"><i class="fas fa-bars"></i></button>
   </div>
 </header>
@@ -831,7 +858,7 @@
       <span></span> AI-Powered Digital Growth Agency
     </div>
     <h1 class="reveal reveal-delay-1">
-      We Help Businesses<br><em>Generate 3X More Leads Using Data & AI</em>
+      Scale Faster with<br><em>Data & AI</em>
     </h1>
     <p class="hero-sub reveal reveal-delay-2">
       We build high-converting funnels, run ROI-focused campaigns, and deploy AI automation so your business generates predictable, compounding growth.
@@ -1210,14 +1237,14 @@
       <div class="contact-left">
         <div class="section-label reveal">Let's Talk</div>
         <h2 class="section-title reveal reveal-delay-1">Ready to Build Your<br>Growth Machine?</h2>
-        <p class="section-sub reveal reveal-delay-2" style="margin-bottom:36px;">Book a strategy call. We'll audit your current growth, identify your biggest opportunity, and show you exactly what we'd do.</p>
+        <p class="section-sub reveal reveal-delay-2" style="margin-bottom:36px;">Book a free 30-minute strategy call. We'll audit your current growth, identify your biggest opportunity, and show you exactly what we'd do.</p>
         <div class="contact-info-item reveal">
           <i class="fab fa-whatsapp"></i>
           <span>+91 900 423 0084</span>
         </div>
         <div class="contact-info-item reveal reveal-delay-1">
           <i class="fas fa-envelope"></i>
-          <span>hello@tendoon.com</span>
+          <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="177f727b7b7857637279737878793974787a">[email&#160;protected]</a></span>
         </div>
         <div class="contact-info-item reveal reveal-delay-2">
           <i class="fas fa-clock"></i>
@@ -1279,7 +1306,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <span class="logo-text">TENDOON<span class="logo-dot"></span></span>
+        <img src="logo1.png" alt="Tendoon" class="footer-logo" />
         <p>Innovate. Connect. Evolve.<br>Data-driven digital growth for ambitious businesses worldwide.</p>
       </div>
       <div class="footer-col">
@@ -1311,16 +1338,17 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 | Tendoon | All rights reserved.</p>
-      <div class="social-icons">
-        <a href="https://wa.me/919004230084" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://linkedin.com/in/tendoon.official" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://instagram.com/tendoon.official" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://x.com/tendoonofficial" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://facebook.com/tendoon.official" target="_blank"><i class="fab fa-facebook"></i></a>
+      <div class="footer-bottom">
+        <p>© 2026 Tendoon. All rights reserved.</p>
+        <div class="social-icons">
+          <a href="https://wa.me/919004230084" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://linkedin.com/in/tendoon.official" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://x.com/tendoonofficial" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://facebook.com/tendoon.official" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://instagram.com/tendoon.official" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://threads.com/tendoon.official" target="_blank"><i class="fab fa-threads"></i></a>
+        </div>
       </div>
-    </div>
   </div>
 </footer>
 
@@ -1331,7 +1359,7 @@
   </a>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Header scroll
   const header = document.getElementById('header');
   window.addEventListener('scroll', () => {
